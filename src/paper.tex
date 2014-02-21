@@ -37,7 +37,7 @@
 
     The test system was a Debian (wheezy, stable) installation at first. But it
     turned out that this was not the best idea, as much software had to be
-    installed from the backports repositories of Debian, such as gcc-4.8.
+    installed from the backport repositories of Debian, such as gcc-4.8.
 
     The second approch worked really good, using a Fedora installation with the
     following specifications:
@@ -85,10 +85,10 @@
         We cloned the repositories of OSv and the OSv applications directly from
         the git repository they are hosted with:
 
-            \begin{lstlisting}
-                git clone https://github.com/cloudius-systems/osv
-                git clone https://github.com/cloudius-systems/osv-apps
-            \end{lstlisting}
+\begin{lstlisting}
+git clone https://github.com/cloudius-systems/osv
+git clone https://github.com/cloudius-systems/osv-apps
+\end{lstlisting}
 
         We then had to go to the latest version of OSv which was marked as
         stable, which was ``v0.05'' at the time we did this. The application
@@ -97,9 +97,9 @@
         We had to update the submodules of the repository of OSv. This can be
         done by
 
-            \begin{lstlisting}
-                git submodule update --init
-            \end{lstlisting}
+\begin{lstlisting}
+git submodule update --init
+\end{lstlisting}
 
         in the repository.
 
@@ -110,9 +110,9 @@
     the submodules of the repository are updated, the build of an image of
     OSv is really simple. By executing
 
-        \begin{lstlisting}
-            make
-        \end{lstlisting}
+\begin{lstlisting}
+make
+\end{lstlisting}
 
     an image gets build. This can take several minutes. On our testing
     system, the build process took about 20 minutes.
