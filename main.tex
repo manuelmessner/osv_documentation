@@ -1,0 +1,71 @@
+\documentclass[
+	12pt,
+	a4paper,
+	bibtotoc,
+	cleardoubleempty,
+	idxtotoc,
+	ngerman,
+	openright
+	final,
+	listof=nochaptergap,
+	]{scrbook}
+
+\input{src/settings}
+
+\begin{document}
+
+\setcounter{secnumdepth}{3}
+
+% Title page
+\include{src/title}
+\cleardoubleemptypage
+
+\frontmatter
+
+% Abstract
+\include{src/abstract}
+\cleardoubleemptypage
+
+% Slogan
+\include{src/slogan}
+\cleardoubleemptypage
+
+% Table of contents
+\tableofcontents
+\addcontentsline{toc}{chapter}{Table of contents}
+\cleardoubleemptypage
+
+% Include table of figures and include it into the toc.
+% WORKAROUND:
+% tocloft and KOMA do not work together
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+\cleardoubleemptypage
+
+% Include table of tables and include it into toc.
+% WORKAROUND:
+% tocloft and KOMA do not work together
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\cleardoubleemptypage
+
+% Abbreviation
+\include{src/abbreviations}
+
+\mainmatter
+
+\include{src/introduction}
+\include{src/paper}
+
+%\printindex
+
+\singlespacing
+\bibliographystyle{alphadin}
+\bibliography{bibtex}
+
+\include{src/affirmation}
+
+\include{src/appendix}
+
+\end{document}

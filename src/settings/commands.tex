@@ -1,0 +1,62 @@
+%
+% Command for including source code
+%
+
+\newcommand{\includecode}[2][c]{\lstinputlisting{#2}}
+
+\newcommand{\MakeSimpleGlossaryEntryAndPaste}[2]{
+    \section{#1}
+    #2
+
+    \newglossaryentry{#1}{
+        name=#1,
+        description={#2}
+    }
+}
+
+\newcommand{\MakeSimpleGlossaryEntryWithPluralAndPaste}[3]{
+    \section{#1}
+    #3
+
+    \newglossaryentry{#1}{
+        name=#1,
+        description={#3},
+        plural=#2
+    }
+}
+
+\newcommand{\docProjectMember}[1]{#1}
+
+%
+% Something with a label
+%
+\newcommand{\withLabel}[2]{#1 \label{#2}}
+
+%
+% Add "subsubsubsection" to be more consistant and adding a newline after the
+% heading.
+%
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}}
+\newcommand{\subsubsubsubsection}[1]{\subparagraph{#1}\mbox{}}
+
+%
+% This command includes an image by floating it right or left
+%
+% arguments:
+%
+%   1 - floating -> r, l
+%   2 - image path
+%   3 - caption
+%   4 - label
+%
+
+\newcommand{\includefloatimage}[4]{
+        \begin{wrapfigure}{#1}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=0.49\textwidth]{#2}
+            \end{center}
+            \caption{#3}
+            \label{#4}
+            \vspace{-10pt}
+        \end{wrapfigure}
+    }

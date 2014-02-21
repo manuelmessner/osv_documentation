@@ -1,0 +1,29 @@
+\renewcommand{\thefigure}{\arabic{figure}}
+\counterwithout{figure}{chapter}
+
+\renewcommand{\cftfigpresnum}{Abbildung }
+\renewcommand{\cftfigaftersnum}{:}
+
+\newlength{\figureLength}
+\settowidth{\figureLength}{\bfseries\cftfigpresnum\cftfigaftersnum}
+\setlength{\cftfignumwidth}{\figureLength}
+\setlength{\cftfigindent}{0cm}
+
+\renewcommand\cftfigfont{\sffamily}
+\renewcommand\cftfigpagefont{\sffamily}
+
+
+
+\renewcommand{\thetable}{\arabic{table}}
+\counterwithout{table}{chapter}
+
+\renewcommand{\cfttabpresnum}{Tabelle }
+\renewcommand{\cfttabaftersnum}{:}
+
+\newlength{\tableLength}
+\settowidth{\tableLength}{\bfseries\cfttabpresnum\cfttabaftersnum}
+\setlength{\cfttabnumwidth}{\tableLength}
+\setlength{\cfttabindent}{0cm}
+
+\renewcommand\cfttabfont{\sffamily}
+\renewcommand\cfttabpagefont{\sffamily}

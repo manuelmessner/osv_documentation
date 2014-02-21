@@ -1,0 +1,60 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\ifx\pdftexversion\undefined
+    \usepackage[dvips]{graphicx}
+\else
+    \usepackage[pdftex]{graphicx}
+    \DeclareGraphicsRule{*}{mps}{*}{}
+\fi
+\usepackage{dingbat}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[hyphens]{url}
+\usepackage[babel, german=quotes]{csquotes}
+\usepackage{index}
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage[toc]{glossaries}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{tocloft}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{chngcntr}
+\usepackage{booktabs}
+
+\makeindex
+
+\usepackage[
+	portrait,
+	bindingoffset=1.5cm,
+	inner=2.5cm,
+	outer=2.5cm,
+	top=3cm,
+	bottom=2cm,
+	%includeheadfoot
+	]{geometry}
+
+\usepackage{fancyhdr}
+\usepackage{bibgerm}
+\usepackage[printonlyused]{acronym}
+\usepackage[
+	colorlinks=false,
+   	linkcolor=black,
+   	citecolor=black,
+  	filecolor=black,
+	urlcolor=black,
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=3,
+    bookmarksnumbered,
+    plainpages=false,
+    pdfpagelabels=true,
+    hyperfootnotes,
+    pdftitle ={\docTitle},
+    %pdfauthor={\docVorname~\docNachname},
+    %pdfcreator={\docVorname~\docNachname}
+    ]{hyperref}
+
+\usepackage{wrapfig}
