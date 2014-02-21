@@ -1,1 +1,37 @@
 \chapter{Introduction}
+
+    Cloud computing and the ability to host several services and
+    applications within an operating system on just one physical machine has
+    gained a lot of attention over the past years. The ability to mutliplex
+    virtual computers onto one (or more) physical machines is a common approach
+    when it comes to cloud services. Services and providers for cloud hosting
+    and virtual machines are long-established. Amazon or Rackspace host millions
+    of virtual machines every day \cite[S. 1]{unikernels}.
+
+    The \HFU runs a cloud for research as well as for the students. Stundents
+    and employees are able to start a VM via a Webinterface, where they can
+    install software they need for their work, test software or try new
+    operating systems. They have two different Debian images, one with the LAMP
+    software package preinstalled, the other one just a minimal one. They also
+    have a option for starting an OwnCloud server and they provide a Windows
+    virtual machine.
+
+    As it is very resource-intensive to host several virtual machines which do
+    basically the same - running a Debian with all its packages, services and
+    tools - they wanted to try something new.
+
+    The idea behind an Unikernel is, that there is only the kernel of the
+    operating system, the basic services which are required to run a service and
+    the service itself. Computing time intensive protocols and layers, support
+    for physical disk drives, SSDs (Solid state drive) or runtime environments
+    for languages like Java or .NET are not included in the unikernel, as there
+    is no need for them anymore \cite[S. 1]{unikernels}.
+
+    A unikernel operating system includes the userspace code and the kernel code
+    in flexible modules which are only runable within the VM itself.
+
+    The \HFU wanted the author of this paper do to research on this topic and to
+    find out if a unikernel operating system could be an alternative to some
+    approches the virtual machines at the \HFU are used for. The \HFU wanted OSv
+    to be tested, as they're using KVM for their cloud infrastructure and OSv is
+    the one unikernel operating system which can run on KVM.
