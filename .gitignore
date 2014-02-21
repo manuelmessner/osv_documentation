@@ -1,5 +1,7 @@
+*.1
 *.aux
 *.bbl
+*.bcf
 *.blg
 *.idx
 *.lof
@@ -11,4 +13,3 @@
 *.snm
 *.toc
 *.vrb
-*.1
