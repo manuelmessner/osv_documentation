@@ -1,4 +1,116 @@
 % This is the main file for the content.
 % Here go only includes.
 
-\cite{example}
+\chapter{Why OSv}
+
+    OSv is one out of many unikernel operating systems:
+
+        \begin{itemize}
+            \item Osv
+            \item Mirage OS
+            \item Drawbridge
+            \item HalVM
+            \item ErlangOnXen
+            \item GUK
+            \item NetBSD
+            \item ClickOS
+        \end{itemize}\cite[S. 13]{unikernels}
+
+    But Anil Madhavapeddy and David J. Scott list it as only unikernel operating
+    system which can be run on the Kernel Virtual Machine (KVM) in their article
+    ``Unikernels: Rise of the Virtual Library Operating System'' on unikernels.
+    As the \HFU only uses KVM as
+    hypervisor, the research on the whole topic of unikernels had to start with
+    an unikernel operating system which can be run on KVM.
+
+\chapter{The setup}
+
+    The testing machine specifications where not very good and not compareable
+    to the cloud service machines the \HFU runs, but it was good enough:
+
+        \begin{itemize}
+            \item 4 GB RAM
+            \item AMD Athlon Dual Core Processor 5400B
+        \end{itemize}
+
+    The test system was a Debian (wheezy, stable) installation at first. But it
+    turned out that this was not the best idea, as much software had to be
+    installed from the backports repositories of Debian, such as gcc-4.8.
+
+    The second approch worked really good, using a Fedora installation with the
+    following specifications:
+
+        \begin{itemize}
+            \item Linux Kernel 3.13.3-201.fc20.x86\_64
+            \item yum 3.4.3
+        \end{itemize}
+
+
+    \section{Installed packages}
+
+        For compiling OSv from source, as well as compiling modules for OSv from
+        source, we had to install a bunch of software.
+
+        The following list of software is listed in the OSv documentation as
+        required for building OSv:
+
+            \begin{itemize}
+                \item ant
+                \item autoconf
+                \item automake
+                \item boost-static
+                \item gcc-c++
+                \item genromfs
+                \item libvirt
+                \item libtool
+                \item flex
+                \item bison
+                \item qemu-system-x86
+                \item qemu-img
+                \item maven
+                \item maven-shade-plugin
+            \end{itemize}
+
+        But we installed some more packages, as we needed them to build OSv or
+        the modules:
+
+            %\begin{itemize}
+                % TODO
+            %\end{itemize}
+
+    \section{The repositories}
+
+        We cloned the repositories of OSv and the OSv applications directly from
+        the git repository they are hosted with:
+
+            \begin{lstlisting}
+                git clone https://github.com/cloudius-systems/osv
+                git clone https://github.com/cloudius-systems/osv-apps
+            \end{lstlisting}
+
+        We then had to go to the latest version of OSv which was marked as
+        stable, which was ``v0.05'' at the time we did this. The application
+        repository had no version tags at this time.
+
+        We had to update the submodules of the repository of OSv. This can be
+        done by
+
+            \begin{lstlisting}
+                git submodule update --init
+            \end{lstlisting}
+
+        in the repository.
+
+    \section{Building OSv}
+
+        Once the software packages are installed, the repository of OSv is
+        cloned (the osv-apps repository is not required for a basic build) and
+        the submodules of the repository are updated, the build of an image of
+        OSv is really simple. By executing
+
+            \begin{lstlisting}
+                make
+            \end{lstlisting}
+
+        an image gets build. This can take several minutes. On our testing
+        system, the build process took about 20 minutes.
