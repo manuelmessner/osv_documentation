@@ -1,0 +1,6 @@
+DEVICE=virbr0
+TYPE=Bridge
+BOOTPROTO=dhcp
+NETMASK=255.255.255.0
+ONBOOT=yes
+SEARCH="google.com"
