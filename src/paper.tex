@@ -121,6 +121,24 @@ git submodule update --init
         \ref{netconf:em1} (for ``em1'') and \ref{netconf:virbr0} (for
         ``virbr0``).
 
+        After these configration files are put in the right directory, the
+        ``NetworkManager'' has to be stopped via
+
+\begin{lstlisting}
+sudo /etc/init.d/NetworkManager stop
+\end{lstlisting}
+
+        and the network has to be restarted
+
+\begin{lstlisting}
+sudo /etc/init.d/network restart
+\end{lstlisting}
+
+        After that, the ``ifconfig'' command should show the ``em1'' interface
+        as unconfigured and without an IP adress, the virbr0 interface instead
+        has an IP. An example can be found in appendix \ref{example:ifconfig}.
+
+
 \chapter{Building OSv}
 
     Once the software packages are installed, the repository of OSv is
