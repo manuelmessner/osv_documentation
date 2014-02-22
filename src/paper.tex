@@ -103,6 +103,24 @@ git submodule update --init
 
         in the repository.
 
+    \section{Network setup}
+
+        Before OSv can be run, the network has to be configured to allow the
+        KVM/qemu to create virtual interfaces, which are required for external
+        communication from within OSv.
+
+        Our setup used ``virbr0'' (as discribed in the OSv documentation) as
+        bridge and let ``em1'' (which equals ``eth1'' on Debian) unconfigured.
+        The used configuration scripts are located in
+
+\begin{lstlisting}
+/etc/sysconfig/network-scripts
+\end{lstlisting}
+
+        in Fedora. The configuration scripts can be found in the appendix
+        \ref{netconf:em1} (for ``em1'') and \ref{netconf:virbr0} (for
+        ``virbr0``).
+
 \chapter{Building OSv}
 
     Once the software packages are installed, the repository of OSv is
