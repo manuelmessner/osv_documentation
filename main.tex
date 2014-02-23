@@ -26,32 +26,10 @@
 \include{src/abstract}
 \cleardoubleemptypage
 
-% Slogan
-\include{src/slogan}
-\cleardoubleemptypage
-
 % Table of contents
 \tableofcontents
 \addcontentsline{toc}{chapter}{Table of contents}
 \cleardoubleemptypage
-
-% Include table of figures and include it into the toc.
-% WORKAROUND:
-% tocloft and KOMA do not work together
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures
-\cleardoubleemptypage
-
-% Include table of tables and include it into toc.
-% WORKAROUND:
-% tocloft and KOMA do not work together
-\phantomsection
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
-\cleardoubleemptypage
-
-% Abbreviation
-\include{src/abbreviations}
 
 \mainmatter
 
