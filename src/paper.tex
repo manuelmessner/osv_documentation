@@ -175,3 +175,59 @@ python scripts/run.py -c 1 -m 1G
     Where ``1G'' stands or one gigabyte RAM for the virtual machine and the
     ``1'' after  ``-c'' stands for one processor core.
 
+    The script can print a help summary with the option ``--help'' or ``-h''.
+
+\chapter{Production usage}
+
+    When it comes to production usage or stability, we wouldn't recommend using
+    OSv, at least for the \HFU.
+
+    There are several points why we wouldn't recommend it (yet):
+
+    \section{Missing shell commands}
+
+        The ``CRaSH'' shell, which is a Java implementation of a shell for OSv
+        has only few commands available. While we did our research on the topic,
+        it got improved a lot, but essential commands or functionalities as
+
+            \begin{itemize}
+                \item The ``mkdir'' command
+                \item The ``rmdir'' command
+                \item Pipes
+                \item Redirections
+            \end{itemize}
+
+        and others are not available yet.
+
+    \section{Shutdown when program exits}
+
+        We tried porting a Java implementation of git to OSv. It worked quiet
+        good, but there was one big issue: git returns with status codes which
+        are not equal to zero, if some unexpected things happened.
+
+        An exit code from an application which exits with non-zero return values
+        shuts the VM down.
+
+        Returning non-zero exit codes is a design decision by the git (and jgit)
+        developers. We would be
+        able to patch the jgit implementation to return zero all the time, but
+        we are not able to patch it for every case it returns. In addition,
+        external programs use the return codes of git for identification what
+        happened. There would be no possibility to use (for example) gitolite, a
+        security layer for git servers, with a patched jgit implementation.
+
+    \section{Starting of applications}
+
+        OSv is not able to start normal applications. They must be compiled as
+        shared object. This is bad, because porting (for example) a real git
+        implementation (not a Java implementation) to OSv would require us to
+        port perl. Nobody wants to port perl to something!
+
+    \section{External storage}
+
+        We were not able to figure out how to plug external storage into OSv.
+
+    \section{Documentation}
+
+        The OSv documentation lags of basic information. It is all in all not
+        very good or structured and partially wrong.
