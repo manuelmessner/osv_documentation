@@ -39,8 +39,8 @@
     turned out that this was not the best idea, as much software had to be
     installed from the backport repositories of Debian, such as gcc-4.8.
 
-    The second approch worked really good, using a Fedora installation with the
-    following specifications:
+    The second approch worked really good, using a Fedora (20) installation with
+    the following specifications:
 
         \begin{itemize}
             \item Linux Kernel 3.13.3-201.fc20.x86\_64
@@ -55,35 +55,41 @@
         The following list of software is listed in the OSv documentation as
         required for building OSv:
 
-            \begin{itemize}
-                \item ant
-                \item autoconf
-                \item automake
-                \item boost-static
-                \item gcc-c++
-                \item genromfs
-                \item libvirt
-                \item libtool
-                \item flex
-                \item bison
-                \item qemu-system-x86
-                \item qemu-img
-                \item maven
-                \item maven-shade-plugin
-            \end{itemize}
+            \begin{tabular}{ll}
+                Package             & Version   \\
+                \hline
+
+                ant                 & 1.9.2     \\
+                autoconf            & 2.69      \\
+                automake            & 1.13.4    \\
+                boost-static        & 1.54.0-9  \\
+                gcc-c++             & 4.8.2     \\
+                genromfs            & 0.5.2-10  \\
+                libvirt             & 1.1.3.3-5 \\
+                libtool             & 2.4.2-23  \\
+                flex                & 2.5.37-4  \\
+                bison               & 2.7-3     \\
+                qemu-system-x86     & 2:1.6.1-3 \\
+                qemu-img            & 2:1.6.1-3 \\
+                maven               & 3.1.1     \\
+                maven-shade-plugin  & 2.1-1     \\
+            \end{tabular}
 
         But we installed some more packages, as we needed them to build OSv or
         the modules:
 
-            \begin{itemize}
-                \item boost
-                \item cmake
-                \item dhclient
-                \item git
-                \item make
-                \item openssh-server
-                \item qemu-kvm
-            \end{itemize}
+            \begin{tabular}{ll}
+                Package             & Version   \\
+                \hline
+
+                boost               & 1.54.0-9  \\
+                cmake               & 2.8.12.2  \\
+                dhclient            & 12:4.2.8-1 \\
+                git                 & 1.8.5.3   \\
+                make                & 3.82      \\
+                openssh-server      & 6.4       \\
+                qemu-kvm            & 2:1.6.1-3 \\
+            \end{tabular}
 
     \section{The repositories}
 
