@@ -239,7 +239,8 @@ echo
 #################################################################################
 # NetworkManager                                                                #
 #                                                                               #
-# We disabled the standard NetworkManager because it is too big                 #
+# We disabled the standard NetworkManager because it messes around with the     #
+# configuration for the interfaces                                              #
 # We use dhclient instead but feel free to use your own                         #
 #################################################################################
 echo disable network manager
