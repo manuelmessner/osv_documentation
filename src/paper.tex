@@ -189,6 +189,35 @@ python scripts/run.py -c 1 -m 1G
 
     The script can print a help summary with the option ``--help'' or ``-h''.
 
+\chapter{The setup script}
+
+    With appendix \ref{install:osv}, we provide a script which can be run on a
+    Fedora installation for automatically configurate the host and compile OSv
+    from source. The script builds the latest version of OSv.
+
+    It also needs some prerequisites:
+
+        \begin{itemize}
+            \item Packages
+            \begin{itemize}
+                \item bash
+                \item sed
+                \item systemctl
+                \item tee
+                \item yum
+            \end{itemize}
+
+            \item A user ``osvuser'' on the system. Can be configured inside the
+            script
+        \end{itemize}
+
+    We highly recommend a freshly deployed Fedora installation for this. The
+    installation can take a lot of time, whereas we recommend a good machine, at
+    least with 4GB RAM and a Dualcore in it.
+
+    The script pulls in some dependencies in manner of packages it installes.
+    This is wanted.
+
 \chapter{Production usage}
 
     When it comes to production usage or stability, we wouldn't recommend using
