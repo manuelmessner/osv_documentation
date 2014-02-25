@@ -21,18 +21,18 @@
     basically the same - running a Debian with all its packages, services and
     tools - they wanted to try something new.
 
-    The idea behind an Unikernel is, that there is only the kernel of the
+    The idea behind an unikernel is, that there is only the kernel of the
     operating system, the basic services which are required to run a service and
     the service itself. Computing time intensive protocols and layers, support
     for physical disk drives, SSDs (Solid state drive) or runtime environments
     for languages like Java or .NET are not included in the unikernel, as there
     is no need for them anymore \cite[S. 1]{unikernels}.
 
-    A unikernel operating system includes the userspace code and the kernel code
-    in flexible modules which are only runable within the VM itself.
+    An unikernel operating system includes the userspace code and the kernel
+    code in flexible modules which are only runable within the VM itself.
 
     The \HFU wanted the author of this paper do to research on this topic and to
-    find out if a unikernel operating system could be an alternative to some
+    find out if an unikernel operating system could be an alternative to some
     approches the virtual machines at the \HFU are used for. The \HFU wanted OSv
     to be tested, as they're using KVM for their cloud infrastructure and OSv is
     the one unikernel operating system which can run on KVM.
