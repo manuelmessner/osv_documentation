@@ -75,9 +75,15 @@
         But we installed some more packages, as we needed them to build OSv or
         the modules:
 
-            %\begin{itemize}
-                % TODO
-            %\end{itemize}
+            \begin{itemize}
+                \item boost
+                \item cmake
+                \item dhclient
+                \item git
+                \item make
+                \item openssh-server
+                \item qemu-kvm
+            \end{itemize}
 
     \section{The repositories}
 
@@ -108,6 +114,8 @@ git submodule update --init
         KVM/qemu to create virtual interfaces, which are required for external
         communication from within OSv.
 
+        The NetworkManager got turned off.
+
         Our setup used ``virbr0'' (as discribed in the OSv documentation) as
         bridge and let ``em1'' (which equals ``eth1'' on Debian) unconfigured.
         The used configuration scripts are located in
@@ -137,6 +145,11 @@ sudo /etc/init.d/network restart
         as unconfigured and without an IP adress, the virbr0 interface instead
         has an IP. An example can be found in appendix \ref{example:ifconfig}.
 
+
+    \section{SELinux}
+
+        We also turned off SELinux. We don't know if it works if SELinux is
+        enabled.
 
 \chapter{Building OSv}
 
@@ -175,6 +188,39 @@ python scripts/run.py -c 1 -m 1G
     ``1'' after  ``-c'' stands for one processor core.
 
     The script can print a help summary with the option ``--help'' or ``-h''.
+
+\chapter{The setup script}
+
+    With appendix \ref{install:osv}, we provide a script which can be run on a
+    Fedora installation for automatically configurate the host and compile OSv
+    from source. The script builds the latest version of OSv.
+
+    It also needs some prerequisites:
+
+        \begin{itemize}
+            \item Packages
+            \begin{itemize}
+                \item bash
+                \item sed
+                \item systemctl
+                \item tee
+                \item yum
+            \end{itemize}
+
+            \item A user ``osvuser'' on the system. Can be configured inside the
+            script
+        \end{itemize}
+
+    The packages should be provided by the Fedora installation. You may also
+    need the ``wget'' or ``curl'' program, to retreive the script itself from an
+    external host, if you don't want to use a flashdrive.
+
+    We highly recommend a freshly deployed Fedora installation for this. The
+    installation can take a lot of time, whereas we recommend a good machine, at
+    least with 4GB RAM and a Dualcore in it.
+
+    The script pulls in some dependencies in manner of packages it installes.
+    This is wanted.
 
 \chapter{Production usage}
 
