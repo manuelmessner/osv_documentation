@@ -112,7 +112,7 @@ done
 # needed by I/O redirection
 {
 #################################################################################
-# Prepare / adapt cmds...                                                   #
+# Prepare / adapt cmds...                                                       #
 #################################################################################
 (( $debug == 1 )) && set -x
 
@@ -215,7 +215,7 @@ echo backup old configs
 echo create new configs
 cat > "ifcfg-$bridge" << EOF
 TYPE=Bridge
-DEVICE=virbr0
+DEVICE=$bridge
 ONBOOT=yes
 NETMASK=255.255.255.0
 BOOTPROTO=dhcp
@@ -224,7 +224,7 @@ EOF
 
 cat > "ifcfg-$eth" << EOF
 TYPE=Ethernet
-DEVICE=em1
+DEVICE=$eth
 ONBOOT=yes
 HWADDR=00:22:64:BE:AB:BB
 IPV6INIT=no
